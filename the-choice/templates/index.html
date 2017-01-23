@@ -2,31 +2,45 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>The Choice</title>
+
+    <style>
+        html {
+            background: url(../images/Thematrixincode99.jpeg) no-repeat center center fixed;
+            background-size: cover;
+            color: #dedede;
+
+            font-family: monospace;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        h1, h2 {
+          text-shadow: 3px 3px 1px #003e04;
+        }
+    </style>
 </head>
 
 <body>
     <div>
         <!-- Morpheus -->
-        <h1>What Will You Choose?</h1>
-        <p>Do you want...</p>
-        Reality:
+        <h1 style="padding-top:20px;font-size:60px;">What Will You Choose?</h1>
+        <h2 style="font-size:28px;">Find out just how deep the rabbit hole goes...</h2>
+        <img src="../images/morpheus.png" style="width:50%;height:auto;"><br>
         <p>
-            <input type="button" id="red_on" value="REALITY">
-        </p>
-        Bliss:
-        <p>
-            <input type="button" id="blue_on" value="BLISS">
+            <input type="image" src="../images/Red-pill-hand.png" style="width:25%;height:auto;" id="red_on" alt="REALITY">
+            <input type="image" src="../images/blue-pill-hand.png" style="width:25%;height:auto;" id="blue_on" alt="BLISS">
         </p>
     </div>
-    <hr> Websocket status:
-    <br>
+    <hr> Websocket status:<br>
     <div id="ws-status"> Waiting... </div>
 
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="{{ static_url("ws-client.js")}}"></script>
-
+    <script src="{{ static_url(" ws-client.js ")}}"></script>
 </body>
 
 </html>
