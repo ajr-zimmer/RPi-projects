@@ -2,6 +2,7 @@ from gpiozero import LED, Button
 from signal import pause
 
 import os.path
+import subprocess
 import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
@@ -61,8 +62,11 @@ if __name__ == "__main__":
     try:
         http_server = tornado.httpserver.HTTPServer(make_app())
         http_server.listen(PORT)
-        print "Tornado Server started"
+        print "The Matrix has you..."
+        print "Follow the white rabbit."
+        host_addr = subprocess.check_output("hostname -I", shell=True).strip()
+        print "http://%s:8888/" % host_addr
         tornado.ioloop.IOLoop.current().start()
 
     except:
-        print "Exception triggered - Tornado Server stopped."
+        print "Exception triggered - Returning to blissful ignorance..."
