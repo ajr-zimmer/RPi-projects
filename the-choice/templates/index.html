@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Choice</title>
+</head>
+
+<body>
+    <div>
+        <!-- Morpheus -->
+        <h1>What Will You Choose?</h1>
+        <p>Do you want...</p>
+        Reality:
+        <p>
+            <input type="button" id="red_on" value="REALITY">
+        </p>
+        Bliss:
+        <p>
+            <input type="button" id="blue_on" value="BLISS">
+        </p>
+    </div>
+    <hr> Websocket status:
+    <br>
+    <div id="ws-status"> Waiting... </div>
+
+    <!-- Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{{ static_url(" ws-client.js ") }}"></script>
+
+</body>
+
+</html>
