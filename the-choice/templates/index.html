@@ -7,7 +7,7 @@
 
     <style>
         html {
-            background: url(../images/Thematrixincode99.jpeg) no-repeat center center fixed;
+            background: url({{ static_url("Thematrixincode99.jpeg") }}) no-repeat center center fixed;
             background-size: cover;
             color: #dedede;
 
@@ -29,10 +29,10 @@
         <!-- Morpheus -->
         <h1 style="padding-top:20px;font-size:60px;">What Will You Choose?</h1>
         <h2 style="font-size:28px;">Find out just how deep the rabbit hole goes...</h2>
-        <img src="../images/morpheus.png" style="width:50%;height:auto;"><br>
+        <img src="{{ static_url("morpheus.png") }}" style="width:50%;height:auto;"><br>
         <p>
-            <input type="image" src="../images/Red-pill-hand.png" style="width:25%;height:auto;" id="red_on" alt="REALITY">
-            <input type="image" src="../images/blue-pill-hand.png" style="width:25%;height:auto;" id="blue_on" alt="BLISS">
+            <input type="image" src="{{ static_url("Red-pill-hand.png") }}" style="width:25%;height:auto;" id="red_on" alt="REALITY">
+            <input type="image" src="{{ static_url("blue-pill-hand.png") }}"  style="width:25%;height:auto;" id="blue_on" alt="BLISS">
         </p>
     </div>
     <hr> Websocket status:<br>
@@ -40,7 +40,7 @@
 
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="{{ static_url(" ws-client.js ")}}"></script>
+    <script src="{{ static_url("ws-client.js") }}"></script>
 </body>
 
 </html>
