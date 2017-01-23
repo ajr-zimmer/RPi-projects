@@ -1,10 +1,24 @@
+from gpiozero import LED, Button
+from signal import pause
+
 import os.path
 import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
 import tornado.web
-from gpiozero import LED, Button
-from signal import pause
+
+#Setup Raspberry Pi Components
+redLED = LED(22)
+blueLED = LED(17)
+button = Button(2)
+
+def reality():
+    redLED.on()
+    blueLED.off()
+
+def bliss():
+    redLED.off()
+    blueLED.on()
 
 #Tornado Folder Paths
 settings = dict(
@@ -28,8 +42,10 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         print "[WS] Incoming message:", message
         if message == "on_r":
             print "real red"
+            reality()
         if message == "on_b":
             print "blissful blue"
+            bliss()
 
     def on_close(self):
         print "[WS] Connection was closed."
