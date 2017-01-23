@@ -43,10 +43,10 @@ def make_app():
 
 if __name__ == "__main__":
     try:
-        app = make_app()
-        app.listen(PORT)
+        http_server = tornado.httpserver.HTTPServer(make_app())
+        http_server.listen(PORT)
+        print "Tornado Server started"
         tornado.ioloop.IOLoop.current().start()
 
     except:
         print "Exception triggered - Tornado Server stopped."
-

@@ -5,11 +5,7 @@ $(document).ready(function(){
         if(window.location.protocol == "http:"){
             //localhost
             var ws = new WebSocket("ws://" + window.location.host + WEBSOCKET_ROUTE);
-            }
-        else if(window.location.protocol == "https:"){
-            //Dataplicity
-            var ws = new WebSocket("wss://" + window.location.host + WEBSOCKET_ROUTE);
-            }
+        }
 
         ws.onopen = function(evt) {
             $("#ws-status").html("Connected");
