@@ -24,11 +24,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         print "[WS] Connection was opened."
 
-    def on_message(self message):
+    def on_message(self, message):
         print "[WS] Incoming message:", message
-        if message == "reality":
+        if message == "on_r":
             print "real red"
-        if message == "bliss":
+        if message == "on_b":
             print "blissful blue"
 
     def on_close(self):
