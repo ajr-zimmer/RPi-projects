@@ -5,30 +5,34 @@ import time
 import pygame.mixer
 from pygame.mixer import Sound
 
-#Define variables
 delay = 0.5
+# Create GPIO components
 ldr_channel = MCP3008(0)
 force1_channel = MCP3008(1)
 force2_channel = MCP3008(2)
+
+# Initialize sound components
 pygame.mixer.init()
 ellaria = Sound("ellaria.wav")
 oberyn = Sound("oberyn.wav")
 headsplosion = Sound("headsplosion.wav")
+# Find open channels and set the volume to 0 initially
 ellaria_channel = pygame.mixer.find_channel()
 ellaria_channel.set_volume(0)
 ellaria_channel.queue(ellaria)
 oberyn_channel = pygame.mixer.find_channel()
 oberyn_channel.set_volume(0)
 oberyn_channel.queue(oberyn)
-
 light_channel = pygame.mixer.find_channel()
 light_channel.set_volume(0)
 light_channel.queue(headsplosion)
-
+# Previous values of sensors to calculate how much the value has changed
 last_readl1 = 0
 last_readf1 = 0
 last_readf2 = 0
 
+# The following three methods convert the analog values to a number
+# in the range of 0.0-1.0, in order to set the volume of each channel
 def set_crunch_volume(sensor_value):
     set_volume = sensor_value / 9.00
     set_volume = round(set_volume)
@@ -55,6 +59,7 @@ while True:
     ellaria_channel.queue(ellaria)
     oberyn_channel.queue(oberyn)
 
+    # Grab analog values from sensors (0-1023)
     ldr_value = ldr_channel.raw_value
     force1_value = force1_channel.raw_value
     force2_value = force2_channel.raw_value
