@@ -38,7 +38,7 @@ def set_crunch_volume(sensor_value):
     set_volume = round(set_volume)
     set_volume = int(set_volume)
     set_volume = set_volume / 100
-    return 1 - set_volume
+    return set_volume
 
 def set_scream_volume(sensor_value):
     set_volume = sensor_value - 512
